@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Provider from "./provider";
-import Header from "@/components/custom/Header";
 import ConvexClientProvider from "./ConvexProvider";
 
 
@@ -16,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "boltz-free",
-  description: "Create full stack apps with help of ai",
+  title: "flash ⚡",
+  description: "Create apps with help of ai",
 };
 
 export default function RootLayout({ children }) {
