@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Provider from "./provider";
 import ConvexClientProvider from "./ConvexProvider";
+import { Analytics } from '@vercel/analytics/next';
 
 
 const geistSans = Geist({
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
         <ConvexClientProvider>
           <Provider >
             {children}
+            <Analytics />
           </Provider>
         </ConvexClientProvider>
       </body>
