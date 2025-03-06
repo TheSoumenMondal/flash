@@ -12,7 +12,7 @@ const Header = () => {
     <div className=' p-4 px-16 flex justify-between items-center'>
       <p className='font-bold text-xl'>Flash⚡</p>
       {!userDetails && <div className='flex gap-5'>
-        <Button variant="ghost">Sign in</Button>
+        <Button  variant="ghost">Sign in</Button>
         <Button className="text-white bg-sky-500 hover:bg-sky-600">Get Started</Button>
       </div>}
     </div>

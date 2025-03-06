@@ -16,14 +16,15 @@ const Hero = () => {
   const { messages, setMessages } = useContext(MessagesContext)
   const { userDetails, setUserDetails } = useContext(UserDetailsContext)
   const [openDialog, setOpenDialog] = useState(true)
-
-  const createWorkSpace = useMutation(api.workspace.workspace)
+  
+  const  createWorkSpace = useMutation(api.workspace.workspace)
 
   const router = useRouter()
 
   const onGenerate = async (input) => {
     if (!userDetails?.name) {
       setOpenDialog(true)
+      return
     }
     const msg = {
       role: "User",

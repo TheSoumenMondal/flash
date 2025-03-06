@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react';
 import {
     Dialog,
     DialogContent,
     DialogDescription,
     DialogHeader,
     DialogTitle,
-} from "@/components/ui/dialog"
-import { Button } from '../ui/button'
+} from "@/components/ui/dialog";
+import { Button } from '../ui/button';
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import UserDetailsContext from '@/context/UserDetailsContext';
@@ -14,31 +14,31 @@ import { useMutation } from 'convex/react';
 import { api } from '../../../convex/_generated/api';
 import { v4 as uuidv4 } from 'uuid';
 
-
 const SignInDialog = ({ openDialog, closedialog }) => {
-    const { userDetails, setUserDetails } = useContext(UserDetailsContext)
+    const { userDetails, setUserDetails } = useContext(UserDetailsContext);
 
     useEffect(() => {
         if (userDetails) {
-            closedialog(false)
+            closedialog(false);
         }
-    }, [userDetails])
+    }, [userDetails]);
 
-    const createUser = useMutation(api.users.createUser)
+    const createUser = useMutation(api.users.createUser);
 
     const googleLogin = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
             try {
                 const userInfo = await axios.get(
                     'https://www.googleapis.com/oauth2/v3/userinfo',
-                    { headers: { Authorization: `Bearer ${tokenResponse?.access_token}` } }, // Fixed Bearer token format
+                    { headers: { Authorization: `Bearer ${tokenResponse?.access_token}` } },
                 );
+                const user = userInfo.data; // Define user here
 
                 try {
                     await createUser({
-                        name: user?.name,
-                        email: user?.email,
-                        picture: user?.picture,
+                        name: user.name,
+                        email: user.email,
+                        picture: user.picture,
                         uid: uuidv4()
                     });
                 } catch (error) {
@@ -65,7 +65,6 @@ const SignInDialog = ({ openDialog, closedialog }) => {
         return null;
     }
 
-
     return (
         <div>
             <Dialog open={openDialog} onOpenChange={closedialog}>
@@ -78,14 +77,16 @@ const SignInDialog = ({ openDialog, closedialog }) => {
                                 <p className='text-center mt-2'>
                                     To use this application you must sign in first
                                 </p>
-                                <Button onClick={googleLogin} className="bg-sky-500 cursor-pointer hover:bg-sky-600 mt-3 text-white">Sign In with Google</Button>
+                                <Button onClick={googleLogin} className="bg-sky-500 cursor-pointer hover:bg-sky-600 mt-3 text-white">
+                                    Sign In with Google
+                                </Button>
                             </div>
                         </DialogDescription>
                     </DialogHeader>
                 </DialogContent>
             </Dialog>
         </div>
-    )
-}
+    );
+};
 
-export default SignInDialog
+export default SignInDialog;
