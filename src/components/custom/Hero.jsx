@@ -16,8 +16,8 @@ const Hero = () => {
   const { messages, setMessages } = useContext(MessagesContext)
   const { userDetails, setUserDetails } = useContext(UserDetailsContext)
   const [openDialog, setOpenDialog] = useState(true)
-  
-  const  createWorkSpace = useMutation(api.workspace.workspace)
+
+  const createWorkSpace = useMutation(api.workspace.workspace)
 
   const router = useRouter()
 
@@ -42,18 +42,46 @@ const Hero = () => {
   }
 
   return (
-    <div className='flex flex-col items-center mt-36 gap-2'>
+    <div className='flex flex-col items-center mt-36 gap-2 select-none'>
       <h2 className='font-bold text-4xl'>What do you want to build ?</h2>
       <p className='text-gray-400 font-medium'> prompt and make your idea real</p>
-      <div className='p-5 border rounded-xl max-w-xl w-full mt-3 bg-stone-900'>
-        <div className='flex gap-2'>
+      <div className="relative p-5 rounded-xl max-w-xl w-full mt-3 bg-stone-900 inputField">
+        <div className="flex gap-2">
           <textarea
             onChange={(e) => setUserInput(e.target.value)}
-            className='outline-none h-32 resize-none w-full max-h-56 bg-transparent' type="text" placeholder='What you want to build' />
-          {userInput && <ArrowRight onClick={() => onGenerate(userInput)} className='bg-sky-500 p-2 h-8 w-8 rounded-md cursor-pointer' />}
+            className="outline-none h-32 resize-none w-full max-h-56 bg-transparent"
+            placeholder="What you want to build ?"
+          />
+          {userInput && (
+            <ArrowRight
+              onClick={() => onGenerate(userInput)}
+              className="bg-sky-500 p-2 h-8 w-8 rounded-md cursor-pointer"
+            />
+          )}
         </div>
-        <Link className='w-5 h-5' />
+        {/* <Link className="w-5 h-5" /> */}
+
+        <div className="inner">
+
+          <svg
+            className="icon"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2.5"
+          >
+            <polyline
+              points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37"
+            ></polyline></svg>
+        </div>
+
+
       </div>
+
+
       <div className='flex items-center flex-wrap gap-2 max-w-2xl justify-center'>
         {data.suggestions.map((suggestions, index) => {
           return (

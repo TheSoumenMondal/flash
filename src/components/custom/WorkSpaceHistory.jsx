@@ -6,7 +6,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { api } from '../../../convex/_generated/api'
 import Link from 'next/link'
 import { useSidebar } from '../ui/sidebar'
-import { Link2 } from 'lucide-react'
 
 const WorkSpaceHistory = () => {
     const convex = useConvex()
@@ -36,7 +35,7 @@ const WorkSpaceHistory = () => {
 
 
                     </Link>
-                ))) : <h2>No Previous Chats</h2>
+                ))) : <h2 className='px-6 text-sm text-gray-400 font-light mt-2 cursor-pointer hover:text-white'>No Previous Chats</h2>
             }
         </div>
     )

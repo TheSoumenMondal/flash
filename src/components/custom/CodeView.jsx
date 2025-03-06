@@ -1,5 +1,5 @@
 'use client'
-import React, { use, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { autocompletion, completionKeymap } from "@codemirror/autocomplete";
 import { SandpackProvider, SandpackLayout, SandpackCodeEditor, SandpackPreview, SandpackFileExplorer } from '@codesandbox/sandpack-react';
 import axios from 'axios';
@@ -11,7 +11,7 @@ import { useParams } from 'next/navigation';
 import { Download, Loader2Icon, Menu, Rocket } from 'lucide-react';
 import UserDetailsContext from '@/context/UserDetailsContext';
 import Image from 'next/image';
-import { useSidebar } from '@/components/ui/sidebar'; // Import the hook
+import { useSidebar } from '@/components/ui/sidebar';
 import SandPackClient from './SandPackClient';
 import { Button } from '../ui/button';
 import { ActionContext } from '@/context/ActionConext';
