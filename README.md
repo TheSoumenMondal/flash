@@ -2,7 +2,7 @@
 
 
 A brief, catchy description of your project. Explain what Flash does, why it’s useful, and its core value proposition. For example:  
-*"Flash is a ai based app which is capble of generating of new web applications."*
+*"Flash is a web application mainly focusing on generating react applications with prompts."*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/TheSoumenMondal/flash?style=social)](https://github.com/TheSoumenMondal/flash/stargazers)
